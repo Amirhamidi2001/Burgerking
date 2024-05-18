@@ -1,6 +1,14 @@
 from django.urls import path
 
-from website.views import IndexView, AboutView, BookingView, ContactView, FeatureView, MenuView, TeamView
+from website.views import (
+    IndexView,
+    AboutView,
+    BookingView,
+    ContactView,
+    FeatureView,
+    MenuView,
+    TeamView,
+)
 
 app_name = "website"
 

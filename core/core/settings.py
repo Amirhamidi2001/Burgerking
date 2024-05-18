@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-h2mfgrbp2#a_a!n5ok+!5b&tjqtl)^s%$05ly#zj-t80^)&o9^"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,9 +37,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    "robots",
     "blog.apps.BlogConfig",
     "website.apps.WebsiteConfig",
 ]
+
+SITE_ID = 1
+
+# Sitemaps & Host directive
+
+ROBOTS_USE_SITEMAP = False
+ROBOTS_USE_HOST = False
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

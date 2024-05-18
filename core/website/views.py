@@ -1,8 +1,17 @@
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
+from django.shortcuts import render
+from website.forms import ContactForm
 
 
-class IndexView(TemplateView):
+class IndexView(FormView):
     template_name = "website/index.html"
+    form_class = ContactForm
+    success_url = "/"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 
 class AboutView(TemplateView):
@@ -27,3 +36,7 @@ class MenuView(TemplateView):
 
 class TeamView(TemplateView):
     template_name = "website/team.html"
+
+
+def custom_404(request, exception):
+    return render(request, "website/404.html", status=404)
